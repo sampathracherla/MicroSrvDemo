@@ -1,0 +1,57 @@
+hystrix.command.fallbackcmd.execution.isolation.thread.timeoutInMilliseconds: 2000
+server:
+  port: 9090
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+eureka:
+  client:
+    registerWithEureka: false
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+spring:
+  application:
+    name: gateway-service
+  profiles:
+    active: local
+  cloud:
+    loadBalancer:
+      ribbon:
+        enabled: false
+    gateway:
+      routes:
+        - id: auth-service
+          uri: 'lb://auth-service'
+          predicates:
+            - Path=/auth/**
+          filters:
+            - name: Hystrix
+              args:
+                name: hystrix
+                fallbackUri: 'forward:/fallback/auth'
+        - id: account-service
+          uri: 'lb://account-service'
+          predicates:
+            - Path=/account/**
+          filters:
+            - name: Hystrix
+              args:
+                name: hystrix
+                fallbackUri: 'forward:/fallback/account'
+        - id: user-service
+          uri: 'lb://user-service'
+          predicates:
+            - Path=/user/**
+          filters:
+            - name: Hystrix
+              args:
+                name: hystrix
+                fallbackUri: 'forward:/fallback/user'
+               
+msdemo-allow-methods: '*'
+msdemo-access-token-validity-seconds: 259200
+msdemo-signing-key: YWpI+5b0pkyj/b5uKH+O19RMaaw3e55WwstJuE7ly+k=
+msdemo-authority-key: scopes
+                
