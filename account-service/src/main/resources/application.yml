@@ -1,0 +1,23 @@
+server:
+  port: 9093
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka
+
+
+spring:
+  application:
+    name: account-service
+  profiles:
+    active: local
+  data:
+    mongodb:
+      uri: mongodb+srv://msdemouser:msdemopass@cluster0.5f0bw.mongodb.net/sample_analytics?retryWrites=true&w=majority
