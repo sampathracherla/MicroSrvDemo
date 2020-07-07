@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: auth-service
+  profiles:
+    active: local
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/msdemo
+    username: msdemouser
+    password: msdemopass
+  jpa:
+    hibernate.ddl-auto: create
+  cloud:
+    loadBalancer:
+      ribbon:
+        enabled: false
+server:
+  port: 9091
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka
+
+ck-redirect-url: 'http://localhost:4200/ck-portal?token='
+msdemo-access-token-validity-seconds: 259200
+msdemo-signing-key: YWpI+5b0pkyj/b5uKH+O19RMaaw3e55WwstJuE7ly+k=
+msdemo-authority-key: scopes
