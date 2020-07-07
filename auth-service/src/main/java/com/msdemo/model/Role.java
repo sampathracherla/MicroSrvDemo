@@ -31,7 +31,6 @@ public class Role {
 	private Collection<User> users;
 	
 	@ManyToMany
-	@JoinTable(name="msdemo_privilege", joinColumns= @JoinColumn(referencedColumnName="role_id"), inverseJoinColumns=@JoinColumn(referencedColumnName="privilege_id"))
 	private Collection<Privilege> privileges;
 	
 	private Timestamp created;

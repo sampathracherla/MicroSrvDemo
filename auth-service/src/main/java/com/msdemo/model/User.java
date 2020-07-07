@@ -38,7 +38,6 @@ public class User {
 	private Timestamp updated;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name="msdemo_roles", joinColumns= @JoinColumn(referencedColumnName="user_id"), inverseJoinColumns=@JoinColumn(referencedColumnName="role_id"))
 	private Collection<Role> roles;
 	
 	public User() {

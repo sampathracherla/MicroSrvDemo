@@ -23,7 +23,7 @@ public class Privilege {
 	
 	private String description;
 	
-	@ManyToMany(mappedBy="privilege")
+	@ManyToMany(mappedBy="privileges")
 	private Collection<Role> roles;
 	
 	public Privilege() {
