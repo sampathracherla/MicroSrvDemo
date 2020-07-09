@@ -1,18 +1,10 @@
 package org.seleniumdbtest.dbtest;
 
+public class Accounts {
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document(collection = "accounts")
-public class Account {
-
-	@Id
 	private String _id;
-	
 	private long account_id;
 	private long limit;
-	
 	public String get_id() {
 		return _id;
 	}
@@ -31,10 +23,6 @@ public class Account {
 	public void setLimit(long limit) {
 		this.limit = limit;
 	}
-//	public List<String> getProducts() {
-//		return products;
-//	}
-//	public void setProducts(List<String> products) {
-//		this.products = products;
-//	}
+	
+	
 }
