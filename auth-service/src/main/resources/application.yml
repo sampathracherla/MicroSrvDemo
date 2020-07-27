@@ -5,11 +5,11 @@ spring:
     active: local
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/msdemo
+    url: jdbc:mysql://localhost:3306/msdemo?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: msdemouser
     password: msdemopass
   jpa:
-    hibernate.ddl-auto: create
+    hibernate.ddl-auto: update
   cloud:
     loadBalancer:
       ribbon:
