@@ -31,7 +31,7 @@ eureka:
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:8761/eureka
 
-ck-redirect-url: 'http://localhost:4200/ck-portal?token='
+msdemo-redirect-url: 'http://localhost:4200/ck-portal?token='
 msdemo-access-token-validity-seconds: 259200
 msdemo-signing-key: YWpI+5b0pkyj/b5uKH+O19RMaaw3e55WwstJuE7ly+k=
 msdemo-authority-key: scopes
