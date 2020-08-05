@@ -33,6 +33,8 @@ public class User {
 	
 	private String phoneNumber;
 	
+	private boolean isFirstLogin;
+	
 	private Timestamp created;
 	
 	private Timestamp updated;
@@ -115,4 +117,14 @@ public class User {
 	public void setRoles(Collection<Role> roles) {
 		this.roles = roles;
 	}
+
+	public boolean isFirstLogin() {
+		return isFirstLogin;
+	}
+
+	public void setFirstLogin(boolean isFirstLogin) {
+		this.isFirstLogin = isFirstLogin;
+	}
+	
+	
 }
